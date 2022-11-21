@@ -1,12 +1,13 @@
+import dotenv from "dotenv";
 import pg from "pg";
-
+dotenv.config();
 async function connect() {
     if(global.connection) {
         return global.connection.connect();
     }
 
     const pool = new pg.Pool({
-        connectionString: "postgres://ojediarz:h8GPmVRj3QkgO1--05-oL3mTaS-nX6Dg@babar.db.elephantsql.com/ojediarz"
+        connectionString: process.env.CONNECTION_STRING
     });
 
     global.connection = pool;
