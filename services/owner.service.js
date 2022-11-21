@@ -1,4 +1,5 @@
 import OwnerRepository from "../repositories/owner.repository.js";
+import AnimalRepository from "../repositories/animal.repository.js";
 
 async function createOwner(owner) {
     return await OwnerRepository.insertOwner(owner);

@@ -81,11 +81,31 @@ async function deleteAnimal(id) {
     }
 }
 
+async function getAnimalsByOwnerId(owner_id) {
+    const conn = await connect();
+
+    try {
+        const sql = "SELECT * FROM animals WHERE owner_id = $1";
+        const values = [owner_id];
+        const res = await conn.query(sql,values);
+
+        if(!res.rows) {
+            throw new Error("Animals not found!")
+        }
+
+        return res.rows;
+    } catch (error) {
+        throw error;
+    } finally {
+        conn.release();
+    }
+}
 
 export default {
     insertAnimal,
     getAnimals,
     getAnimal,
     deleteAnimal,
-    updateAnimal
+    updateAnimal,
+    getAnimalsByOwnerId
 }

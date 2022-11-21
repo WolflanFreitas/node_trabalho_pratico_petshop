@@ -8,7 +8,10 @@ async function updateAnimal(animal) {
     return await AnimalRepository.updateAnimal(animal);
 }
 
-async function getAnimals() {
+async function getAnimals(owner_id) {
+    if(owner_id) {
+        return await AnimalRepository.getAnimalsByOwnerId(owner_id);
+    } 
     return await AnimalRepository.getAnimals();
 }
 

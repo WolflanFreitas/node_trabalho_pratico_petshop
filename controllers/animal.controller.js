@@ -30,7 +30,8 @@ async function updateAnimal(req, res, next) {
 
 async function getAnimals(req, res, next) {
     try {
-        res.send(await AnimalService.getAnimals());
+        const owner_id = req.query.owner_id;
+        res.send(await AnimalService.getAnimals(owner_id));
     } catch(error) {
         next(error);
     }
