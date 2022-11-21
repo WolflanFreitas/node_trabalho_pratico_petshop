@@ -27,8 +27,9 @@ app.use(cors());
 
 app.use("/owner", OwnerRouter);
 
-app.get("/", (req, res, next) => {
-    res.send("I am live!");
-});
+app.use((err, req, res, next) => {
+    global.logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);
+    res.status(400).send({error: err.message});
+})
 
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
