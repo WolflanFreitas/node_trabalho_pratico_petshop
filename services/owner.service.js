@@ -18,7 +18,7 @@ async function getOwner(id) {
 }
 
 async function deleteOwner(id) {
-    return await OwnerRepository.deleteOwner(id);
+    await OwnerRepository.deleteOwner(id);
 }
 
 export default {

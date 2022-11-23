@@ -18,7 +18,7 @@ async function updateOwner(req, res, next) {
     try {
         let owner = req.body;
     
-        if(!owner.name || !owner.phone || !owner.owner_id) {
+        if(!owner.name || !owner.phone || !owner.ownerId) {
             throw new Error("Owner id, name and phone are required.");
         }
         owner = await OwnerService.updateOwner(owner);
@@ -48,11 +48,12 @@ async function getOwner(req, res, next) {
 async function deleteOwner(req, res, next) {
     try {
         const id =  req.params.id;
-        res.send(await OwnerService.deleteOwner(id));
+        await OwnerService.deleteOwner(id);
     } catch (error) {
         next(error)
     }
 }
+
 export default {
     createOwner,
     getOwners,
