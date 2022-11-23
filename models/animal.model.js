@@ -19,6 +19,6 @@ const Animal = db.define('animals', {
     }
 }, {underscored: true});
 
-Animal.belongsTo(Owner, {foreignKey: ownerId});
+Animal.belongsTo(Owner, {foreignKey: "ownerId"});
 
 export default Animal;

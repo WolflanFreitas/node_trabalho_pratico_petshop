@@ -4,8 +4,8 @@ async function createAnimal(req, res, next) {
     try {
         let animal = req.body;
     
-        if(!animal.name || !animal.type || !animal.owner_id) {
-            throw new Error("Animal owner_id, name and type are required.");
+        if(!animal.name || !animal.type || !animal.ownerId) {
+            throw new Error("Animal ownerId, name and type are required.");
         }
         animal = await AnimalService.createAnimal(animal);
         res.send(animal);
@@ -18,8 +18,8 @@ async function updateAnimal(req, res, next) {
     try {
         let animal = req.body;
     
-        if(!animal.name || !animal.type || !animal.owner_id || !animal.animal_id) {
-            throw new Error("Animal id, name, type and owner_id are required.");
+        if(!animal.name || !animal.type || !animal.ownerId || !animal.animalId) {
+            throw new Error("Animal id, name, type and ownerId are required.");
         }
         animal = await AnimalService.updateAnimal(animal);
         res.send(animal);
@@ -30,8 +30,8 @@ async function updateAnimal(req, res, next) {
 
 async function getAnimals(req, res, next) {
     try {
-        const owner_id = req.query.owner_id;
-        res.send(await AnimalService.getAnimals(owner_id));
+        const ownerId = req.query.ownerId;
+        res.send(await AnimalService.getAnimals(ownerId));
     } catch(error) {
         next(error);
     }
@@ -49,7 +49,8 @@ async function getAnimal(req, res, next) {
 async function deleteAnimal(req, res, next) {
     try {
         const id =  req.params.id;
-        res.send(await AnimalService.deleteAnimal(id));
+        await AnimalService.deleteAnimal(id);
+        res.end();
     } catch (error) {
         next(error)
     }

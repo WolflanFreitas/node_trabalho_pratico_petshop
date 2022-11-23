@@ -49,6 +49,7 @@ async function deleteOwner(req, res, next) {
     try {
         const id =  req.params.id;
         await OwnerService.deleteOwner(id);
+        res.end();
     } catch (error) {
         next(error)
     }
