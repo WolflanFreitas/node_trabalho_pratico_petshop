@@ -11,3 +11,11 @@ CREATE TABLE animals (
     type VARCHAR NOT NULL,
     CONSTRAINT fk_owners FOREIGN KEY (owner_id) REFERENCES owners (owner_id)
 );
+
+CREATE TABLE services (
+    service_id SERIAL PRIMARY KEY,
+    description VARCHAR NOT NULL,
+    value NUMERIC NOT NULL,
+    animal_id INT NOT NULL,
+    CONSTRAINT fk_animals FOREIGN KEY (animal_id) REFERENCES owners (owner_id)
+);
