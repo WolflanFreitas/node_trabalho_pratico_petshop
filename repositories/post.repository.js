@@ -12,6 +12,19 @@ async function createPost(post) {
     }
 }
 
+async function getPosts() {
+    const client = getMongoClient();
+
+    try {
+        await client.connect();
+        return await client.db("petshop").collection("posts").find({}).toArray();
+    } catch(error) {
+        throw error;
+    } finally {
+        await client.close();
+    }
+}
 export default {
-    createPost
+    createPost,
+    getPosts
 }
