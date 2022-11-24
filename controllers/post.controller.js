@@ -21,7 +21,26 @@ async function getPosts(req, res, next) {
     }
 }
 
+async function getPost(req, res, next) {
+    try {
+        res.send(await PostService.getPost(req.params.id));
+    } catch(error) {
+        next(error)
+    }
+}
+
+async function createComment(req, res, next) {
+    try {
+        let comment = req.body;
+        await PostService.createComment(comment);
+        res.sendStatus(200);
+    } catch(error) {
+        next(error)
+    }
+}
 export default {
     createPost,
-    getPosts
+    getPosts,
+    getPost,
+    createComment
 }
