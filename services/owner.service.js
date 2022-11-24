@@ -1,5 +1,4 @@
 import OwnerRepository from "../repositories/owner.repository.js";
-import AnimalRepository from "../repositories/animal.repository.js";
 
 async function createOwner(owner) {
     return await OwnerRepository.insertOwner(owner);
@@ -18,7 +17,7 @@ async function getOwner(id) {
 }
 
 async function deleteOwner(id) {
-    return await OwnerRepository.deleteOwner(id);
+    await OwnerRepository.deleteOwner(id);
 }
 
 export default {

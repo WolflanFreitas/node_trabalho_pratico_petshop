@@ -8,9 +8,9 @@ async function updateAnimal(animal) {
     return await AnimalRepository.updateAnimal(animal);
 }
 
-async function getAnimals(owner_id) {
-    if(owner_id) {
-        return await AnimalRepository.getAnimalsByOwnerId(owner_id);
+async function getAnimals(ownerId) {
+    if(ownerId) {
+        return await AnimalRepository.getAnimalsByOwnerId(ownerId);
     } 
     return await AnimalRepository.getAnimals();
 }
@@ -20,7 +20,7 @@ async function getAnimal(id) {
 }
 
 async function deleteAnimal(id) {
-    return await AnimalRepository.deleteAnimal(id);
+    await AnimalRepository.deleteAnimal(id);
 }
 
 export default {
