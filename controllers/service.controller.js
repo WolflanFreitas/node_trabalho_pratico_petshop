@@ -30,7 +30,7 @@ async function updateService(req, res, next) {
 
 async function getServices(req, res, next) {
     try {
-        res.send(await ServiceService.getServices());
+        res.send(await ServiceService.getServices(req.query.ownerId));
     } catch(error) {
         next(error);
     }

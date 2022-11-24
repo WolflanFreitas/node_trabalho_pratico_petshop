@@ -1,4 +1,5 @@
-import Service from "../models/service.model.js"
+import Service from "../models/service.model.js";
+import Animal from "../models/animal.model.js";
 
 async function insertService(service) {
     try {
@@ -53,11 +54,28 @@ async function deleteService(id) {
     }
 }
 
+async function getServicesByOwnerId(ownerId) {
+    try {
+        return await Service.findAll({
+            include: [
+                {
+                    model: Animal,
+                    where: {
+                        ownerId
+                    }
+                }
+            ]
+        })
+    } catch(error) {
+        throw error;
+    }
+}
 
 export default {
     insertService,
     getServices,
     getService,
     deleteService,
-    updateService
+    updateService,
+    getServicesByOwnerId
 }

@@ -8,7 +8,10 @@ async function updateService(service) {
     return await ServiceRepository.updateService(service);
 }
 
-async function getServices() {
+async function getServices(ownerId) {
+    if(ownerId) {
+        return await ServiceRepository.getServicesByOwnerId(ownerId);
+    }
     return await ServiceRepository.getServices();
 }
 
