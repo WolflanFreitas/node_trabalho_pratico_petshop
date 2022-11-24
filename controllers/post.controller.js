@@ -7,7 +7,7 @@ async function createPost(req, res, next) {
             throw new Error("Post title, content and comments are required.");
         }
         await PostService.createPost(post);
-        res.send(200);
+        res.sendStatus(200);
     } catch(error) {
         next(error)
     }
