@@ -17,5 +17,5 @@ CREATE TABLE services (
     description VARCHAR NOT NULL,
     value NUMERIC NOT NULL,
     animal_id INT NOT NULL,
-    CONSTRAINT fk_animals FOREIGN KEY (animal_id) REFERENCES owners (owner_id)
+    CONSTRAINT fk_animals FOREIGN KEY (animal_id) REFERENCES animals (animal_id)
 );

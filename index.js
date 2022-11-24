@@ -3,6 +3,7 @@ import cors from "cors";
 import winston from "winston";
 import OwnerRouter from "./routes/owner.route.js"
 import AnimalRouter from "./routes/animal.route.js"
+import ServiceRouter from "./routes/service.route.js";
 
 const { combine, timestamp, label, printf} = winston.format;
 const myFormat = printf(({level, message, label, timestamp}) => {
@@ -28,6 +29,7 @@ app.use(cors());
 
 app.use("/owner", OwnerRouter);
 app.use("/animal", AnimalRouter);
+app.use("/service", ServiceRouter);
 
 app.use((err, req, res, next) => {
     global.logger.error(`${req.method} ${req.baseUrl} - ${err.message}`);
