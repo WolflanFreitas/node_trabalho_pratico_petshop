@@ -90,7 +90,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/owner/20",
+							"raw": "http://localhost:3000/owner/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -98,7 +98,7 @@
 							"port": "3000",
 							"path": [
 								"owner",
-								"20"
+								"2"
 							]
 						}
 					},
@@ -208,7 +208,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"description\": \"Escova\",\r\n    \"value\": 55.25,\r\n    \"animalId\": 24\r\n}",
+							"raw": "{\r\n    \"description\": \"Consulta\",\r\n    \"value\": 200,\r\n    \"animalId\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -282,7 +282,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/service",
+							"raw": "http://localhost:3000/service?ownerId=3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -290,6 +290,12 @@
 							"port": "3000",
 							"path": [
 								"service"
+							],
+							"query": [
+								{
+									"key": "ownerId",
+									"value": "3"
+								}
 							]
 						}
 					},
@@ -301,7 +307,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/service/3",
+							"raw": "http://localhost:3000/service/7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -309,7 +315,7 @@
 							"port": "3000",
 							"path": [
 								"service",
-								"3"
+								"7"
 							]
 						}
 					},
@@ -421,7 +427,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/animal?ownerId=19",
+							"raw": "http://localhost:3000/animal?ownerId=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -433,7 +439,7 @@
 							"query": [
 								{
 									"key": "ownerId",
-									"value": "19"
+									"value": "2"
 								}
 							]
 						}
@@ -446,7 +452,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/animal/19",
+							"raw": "http://localhost:3000/animal/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -454,7 +460,7 @@
 							"port": "3000",
 							"path": [
 								"animal",
-								"19"
+								"3"
 							]
 						}
 					},
@@ -492,7 +498,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"postId\": \"637f758325b6c916b785f14b\",\r\n    \"name\": \"Wolflan Camilo Penha de Freitas\",\r\n    \"comment\": \"Nunca nem vi\"\r\n}",
+							"raw": "{\r\n    \"postId\": \"637fe39d88c4e9199fa98707\",\r\n    \"name\": \"Auguto de Botelho o Pinto\",\r\n    \"comment\": \"Artigo mais idiota que já li na vida.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
